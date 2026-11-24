@@ -2,9 +2,6 @@
 
 namespace iEducar\Packages\BuritiAlimentacaoEscolar\Providers;
 
-use iEducar\Packages\BuritiAlimentacaoEscolar\Services\CardapioDia;
-use iEducar\Packages\BuritiAlimentacaoEscolar\Services\RestricaoAlimentar;
-use iEducar\Packages\BuritiAlimentacaoEscolar\Services\MapaDistribuicao;
 use Illuminate\Support\ServiceProvider;
 
 class AlimentacaoEscolarServiceProvider extends ServiceProvider
@@ -13,9 +10,7 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->app->singleton(CardapioDia::class);
-        $this->app->singleton(RestricaoAlimentar::class);
-        $this->app->singleton(MapaDistribuicao::class);
+        // Services são value objects — instanciar com `new` nos callers (não bind no container).
     }
 
     public function boot(): void
