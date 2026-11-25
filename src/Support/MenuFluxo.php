@@ -5,8 +5,6 @@ namespace iEducar\Packages\BuritiAlimentacaoEscolar\Support;
 final class MenuFluxo
 {
     /**
-     * Grupos laterais no estilo transporte.
-     *
      * @param  array<string, bool>  $permite
      * @return list<array{nome:string,itens:list<array{rotulo:string,url:string,icone:string,chave:string}>}>
      */
@@ -24,18 +22,26 @@ final class MenuFluxo
 
         return array_values(array_filter([
             [
-                'nome' => 'Operação',
+                'nome' => 'Dia a dia',
                 'itens' => $filtrar([
-                    $item('painel', 'Painel', '/alimentacao-escolar', 'fa-dashboard'),
+                    $item('painel', 'Início', '/alimentacao-escolar', 'fa-th-large'),
                     $item('cardapio', 'Cardápio do dia', '/alimentacao-escolar/cardapio', 'fa-cutlery'),
-                    $item('restricoes', 'Restrições', '/alimentacao-escolar/restricoes', 'fa-exclamation-triangle'),
-                    $item('mapa', 'Mapa distribuição', '/alimentacao-escolar/mapa', 'fa-map'),
+                    $item('cardapio_lote', 'Cardápio da semana', '/alimentacao-escolar/cardapio-lote', 'fa-calendar'),
+                    $item('itens', 'Alimentos (PNAE)', '/alimentacao-escolar/itens', 'fa-leaf'),
+                    $item('restricoes', 'Restrições alimentares', '/alimentacao-escolar/restricoes', 'fa-medkit'),
                 ]),
             ],
             [
-                'nome' => 'PoC',
+                'nome' => 'Consultas',
                 'itens' => $filtrar([
-                    $item('demo', 'Rodar demo', '/alimentacao-escolar/demo', 'fa-play'),
+                    $item('mapa', 'Mapa de distribuição', '/alimentacao-escolar/mapa', 'fa-map-o'),
+                    $item('historico', 'Histórico de alterações', '/alimentacao-escolar/historico', 'fa-history'),
+                ]),
+            ],
+            [
+                'nome' => 'Manutenção',
+                'itens' => $filtrar([
+                    $item('demo', 'Ferramentas de apoio', '/alimentacao-escolar/demo', 'fa-wrench'),
                 ]),
             ],
         ], static fn (array $g): bool => $g['itens'] !== []));

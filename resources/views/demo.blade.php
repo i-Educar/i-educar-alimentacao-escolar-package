@@ -3,22 +3,19 @@
 @section('titulo', 'Demo PoC')
 @section('migalha', 'Demo')
 
-@section('alimentacao')
-    <div class="cabeca-tela">
-        <div class="identidade-tela">
-            <span class="marca-tela"><i class="fa fa-play"></i></span>
-            <div>
-                <h1>Demo PoC — alimentação</h1>
-                <p class="lead">Executa <code>alimentacao:demo</code> (seed cardápio + restrição + JSON em storage)</p>
-            </div>
-        </div>
-        <div class="acoes-tela">
-            <form method="post" action="{{ url('/alimentacao-escolar/demo') }}">
-                @csrf
-                <button class="botao" type="submit"><i class="fa fa-play"></i> Rodar agora</button>
-            </form>
-        </div>
-    </div>
+@section('icone-tela', 'fa-play')
+@section('titulo-tela', 'Demo PoC — alimentação')
+@section('lead')
+    Executa <code>alimentacao:demo</code> (seed cardápio + restrição + JSON em storage)
+@endsection
+@section('acoes-topo')
+    <form method="post" action="{{ url('/alimentacao-escolar/demo') }}">
+    @csrf
+    <button class="botao" type="submit"><i class="fa fa-play"></i> Rodar agora</button>
+    </form>
+@endsection
+
+@section('conteudo')
 
     <div class="bloco">
         <h2>O que a demo faz</h2>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         $raiz = Menu::query()->updateOrCreate(['process' => Processos::RAIZ], [
             'parent_id' => null,
-            'title' => 'Alimentação escolar',
+            'title' => 'Alimentação',
             'description' => 'Merenda / PNAE (Laguna)',
             'link' => '/alimentacao-escolar',
             'icon' => 'fa-cutlery',

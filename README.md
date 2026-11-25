@@ -2,6 +2,16 @@
 
 Pacote Buriti para o i-Educar **2.12** · Composer `buriti/i-educar-alimentacao-escolar-package`.
 
+## Compatibilidade
+
+| Produto | Versão |
+| --- | --- |
+| **i-Educar** | **2.12.x** (min. 2.12.0) |
+| **i-Diário** | Portabilis i-Diário (espelho Laguna) via API/SSO do core |
+| Pacote | `0.2.0` |
+
+Declarado em `composer.json` → `extra.ieducar` e `extra.idiario`.
+
 ## Identidade
 
 | Token | Valor |

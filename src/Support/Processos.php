@@ -13,6 +13,10 @@ final class Processos
 
     public const CARDAPIO = 881110;
 
+    public const CARDAPIO_LOTE = 881113;
+
+    public const ITENS = 881114;
+
     public const RESTRICOES = 881111;
 
     public const MAPA = 881112;
@@ -23,9 +27,11 @@ final class Processos
     public static function titulos(): array
     {
         return [
-            self::RAIZ => 'Alimentação escolar',
+            self::RAIZ => 'Alimentação',
             self::PAINEL => 'Painel',
-            self::CARDAPIO => 'Cardápio do dia',
+            self::CARDAPIO => 'Cardápio individual',
+            self::CARDAPIO_LOTE => 'Cardápio em lote',
+            self::ITENS => 'Itens / catálogo PNAE',
             self::RESTRICOES => 'Restrições alimentares',
             self::MAPA => 'Mapa de distribuição',
             self::DEMO => 'Demo PoC',

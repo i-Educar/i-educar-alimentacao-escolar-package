@@ -2,6 +2,7 @@
 
 namespace iEducar\Packages\BuritiAlimentacaoEscolar\Providers;
 
+use App\Support\PublicModuleRegistry;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Console\AlimentacaoDemoCommand;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Support\Identidade;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Support\MenuFluxo;
@@ -15,13 +16,31 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        // Services são value objects — instanciar com `new` nos callers.
+        $this->mergeConfigFrom(dirname(__DIR__, 2).'/config/alimentacao.php', 'alimentacao');
     }
 
     public function boot(): void
     {
+        if (class_exists(\iEducar\Packages\BuritiLagunaAmbiente\Support\BuritiUi::class)) {
+            \iEducar\Packages\BuritiLagunaAmbiente\Support\BuritiUi::registrar();
+        }
         $root = dirname(__DIR__, 2);
         $this->loadViewsFrom($root.'/resources/views', 'alimentacao');
+
+        PublicModuleRegistry::register('alimentacao-publico', [
+            'package' => self::PACKAGE,
+            'titulo' => (string) config('alimentacao.public.titulo', 'Alimentação escolar'),
+            'descricao' => 'Acesso público à merenda (quando habilitado)',
+            'url' => static function (): ?string {
+                $url = config('alimentacao.public.url');
+
+                return filled($url) ? (string) $url : null;
+            },
+            'icone' => 'fa-cutlery',
+            'css_class' => 'public-module',
+            'aparecer_na_home' => (bool) config('alimentacao.public.aparecer_na_home', false),
+            'ordem' => (int) config('alimentacao.public.ordem', 30),
+        ]);
 
         if ($this->app->runningInConsole()) {
             $this->commands([AlimentacaoDemoCommand::class]);
@@ -46,8 +65,11 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
             $view->with('menuGrupos', MenuFluxo::grupos([
                 'painel' => true,
                 'cardapio' => true,
+                'cardapio_lote' => true,
+                'itens' => true,
                 'restricoes' => true,
                 'mapa' => true,
+                'historico' => true,
                 'demo' => true,
             ]));
         });
