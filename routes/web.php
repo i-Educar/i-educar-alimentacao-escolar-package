@@ -6,4 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('alimentacao-escolar')->group(function (): void {
     Route::get('/', [CardapioController::class, 'index']);
     Route::get('/cardapio', [CardapioController::class, 'cardapio']);
+    Route::get('/restricoes', [CardapioController::class, 'restricoes']);
+    Route::get('/mapa', [CardapioController::class, 'mapa']);
+    Route::get('/demo', [CardapioController::class, 'demo']);
+    Route::post('/demo', [CardapioController::class, 'rodarDemo']);
 });

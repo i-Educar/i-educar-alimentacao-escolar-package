@@ -51,7 +51,7 @@ class AlimentacaoDemoCommand extends Command
             );
             if (Schema::hasTable('alimentacao.restricao_aluno')) {
                 DB::table('alimentacao.restricao_aluno')->updateOrInsert(
-                    ['aluno_id' => 1, 'restricao' => 'leite'],
+                    ['ref_cod_aluno' => 1, 'restricao' => 'leite'],
                     ['updated_at' => now(), 'created_at' => now()],
                 );
             }

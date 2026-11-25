@@ -3,7 +3,10 @@
 namespace iEducar\Packages\BuritiAlimentacaoEscolar\Providers;
 
 use iEducar\Packages\BuritiAlimentacaoEscolar\Console\AlimentacaoDemoCommand;
+use iEducar\Packages\BuritiAlimentacaoEscolar\Support\Identidade;
+use iEducar\Packages\BuritiAlimentacaoEscolar\Support\MenuFluxo;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AlimentacaoEscolarServiceProvider extends ServiceProvider
@@ -37,5 +40,16 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
             'auth',
             'ieducar.checkresetpassword',
         ])->group($root.'/routes/web.php');
+
+        View::composer('alimentacao::*', function ($view): void {
+            $view->with('identidade', Identidade::tokens());
+            $view->with('menuGrupos', MenuFluxo::grupos([
+                'painel' => true,
+                'cardapio' => true,
+                'restricoes' => true,
+                'mapa' => true,
+                'demo' => true,
+            ]));
+        });
     }
 }
