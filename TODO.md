@@ -7,7 +7,13 @@
 
 - [x] Services de domínio + testes
 - [x] docs/onda-2/
-- [ ] Migrations/UI completas
+- [x] Migrations/UI mínimas PoC (Onda 4: cardápio + menu + demo)
+
+## Onda 4
+
+- [x] Schema alimentacao.* + Blade cardápio
+- [x] `alimentacao:demo`
+- [ ] Estoque/ficha/sobras (plano 15%)
 
 ## Backlog Laguna
 
