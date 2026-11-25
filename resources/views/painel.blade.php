@@ -14,7 +14,7 @@
             <span class="marca-tela"><i class="fa fa-dashboard"></i></span>
             <div>
                 <h1>Painel da alimentação</h1>
-                <p class="lead">PoC Laguna · TR 5.2 · cor-base verde PNAE</p>
+                <p class="lead">TR alimentação · cor-base verde PNAE</p>
             </div>
         </div>
         <div class="acoes-tela">

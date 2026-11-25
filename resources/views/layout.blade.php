@@ -93,7 +93,7 @@
             <span class="icone"><i class="fa {{ $identidade['icone'] ?? 'fa-cutlery' }}"></i></span>
             <span>
                 <strong>{{ $identidade['nome'] ?? 'Alimentação escolar' }}</strong>
-                <small>Laguna · PNAE</small>
+                <small>PNAE</small>
             </span>
         </a>
         @foreach($grupos as $grupo)
@@ -129,7 +129,7 @@
             @endif
             @yield('alimentacao')
         </main>
-        <footer class="rodape">Alimentação escolar · Buriti / Laguna PE-77 · cor-base {{ $identidade['cor'] ?? '' }}</footer>
+        <footer class="rodape">Alimentação escolar · PNAE · cor-base {{ $identidade['cor'] ?? '' }}</footer>
     </div>
 </div>
 </body>
