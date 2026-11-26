@@ -42,6 +42,32 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Automações e gestão
+    |--------------------------------------------------------------------------
+    */
+    'bandejas_automaticas' => (bool) env('ALIMENTACAO_BANDEJAS_AUTO', true),
+    'estimar_porcoes_ao_lancar' => (bool) env('ALIMENTACAO_ESTIMAR_PORCOES', true),
+    'unidade_so_registra_fatos' => (bool) env('ALIMENTACAO_UNIDADE_FATOS', true),
+    'alerta_horario_turma' => (bool) env('ALIMENTACAO_ALERTA_HORARIO', true),
+    'porcoes_padrao' => (int) env('ALIMENTACAO_PORCOES_PADRAO', 100),
+    'lanches_por_dia' => (int) env('ALIMENTACAO_LANCHES_POR_DIA', 2),
+    'incluir_jantar' => (bool) env('ALIMENTACAO_INCLUIR_JANTAR', false),
+    'slots_refeicao' => ['cafe', 'almoco', 'lanche', 'lanche_2'],
+    'janelas' => [
+        'cafe' => ['inicio' => '07:00', 'fim' => '09:00'],
+        'almoco' => ['inicio' => '11:00', 'fim' => '13:30'],
+        'lanche' => ['inicio' => '09:00', 'fim' => '10:30'],
+        'lanche_2' => ['inicio' => '14:00', 'fim' => '16:00'],
+        'jantar' => ['inicio' => '17:30', 'fim' => '19:30'],
+    ],
+    // Padrões PoC Laguna — substitua pelo RT real em Configurações → Módulos
+    'rt_nome' => env('ALIMENTACAO_RT_NOME', 'Nutricionista responsável (PoC Laguna)'),
+    'rt_registro' => env('ALIMENTACAO_RT_REGISTRO', 'CRN-10 0000'),
+    'rt_cargo' => env('ALIMENTACAO_RT_CARGO', 'Nutricionista responsável técnico'),
+    'rt_email' => env('ALIMENTACAO_RT_EMAIL', 'alimentacao@laguna.sc.gov.br'),
+
+    /*
+    |--------------------------------------------------------------------------
     | PNAE (alimentação) — não confundir com PNATE (transporte)
     |--------------------------------------------------------------------------
     */

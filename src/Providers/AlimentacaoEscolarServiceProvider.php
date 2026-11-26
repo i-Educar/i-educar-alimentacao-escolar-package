@@ -17,6 +17,8 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(dirname(__DIR__, 2).'/config/alimentacao.php', 'alimentacao');
+        // Fora de runningInConsole(): o check do Ambiente Laguna (HTTP) usa Artisan::all().
+        $this->commands([AlimentacaoDemoCommand::class]);
     }
 
     public function boot(): void
@@ -43,8 +45,6 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
         ]);
 
         if ($this->app->runningInConsole()) {
-            $this->commands([AlimentacaoDemoCommand::class]);
-
             if (\App\Support\Tenancy\PackageTenant::allows(self::PACKAGE)) {
                 $this->loadMigrationsFrom($root.'/database/migrations');
             }
@@ -67,9 +67,12 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
                 'cardapio' => true,
                 'cardapio_lote' => true,
                 'itens' => true,
+                'perfil' => true,
                 'restricoes' => true,
                 'mapa' => true,
+                'balanco' => true,
                 'historico' => true,
+                'config' => true,
                 'demo' => true,
             ]));
         });
