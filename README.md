@@ -1,56 +1,56 @@
-# Alimentação escolar (TR 5.2)
+# Alimentação escolar
 
-Pacote Buriti para o i-Educar **2.12** · Composer `buriti/i-educar-alimentacao-escolar-package`.
+Gestão da merenda escolar municipal no i-Educar: cardápio, restrições alimentares, distribuição e balanço operacional alinhados ao PNAE.
+
+Composer: `buriti/i-educar-alimentacao-escolar-package`
+
+## Para que serve
+
+Oferece à SME e às escolas um módulo único para planejar, executar e acompanhar a alimentação escolar — do cardápio diário às restrições por aluno — com visão de rede e evidências para auditoria e prestação de contas.
+
+## Desenho de funções
+
+| Função | Entrega |
+| --- | --- |
+| Cardápio do dia / lote | Planejamento de refeições por escola, turno e período; impressão e cronograma |
+| Itens e perfis nutricionais | Cadastro de alimentos/preparações e perfis usados no cardápio |
+| Restrições alimentares | Registro por aluno (alergias/intolerâncias) com laudo anexável |
+| Mapa de distribuição | Visão de quem recebe o quê na rede |
+| Balanço e sobras | Acompanhamento de consumo, sobras e ajustes operacionais |
+| Histórico e configurações | Trilha do que foi servido e parâmetros do módulo |
+| Painel SME | Entrada `/alimentacao-escolar` com visão consolidada |
+
+## Quem usa
+
+- Nutricionistas e equipe de alimentação (SME)
+- Direção / merendeiras na escola
+- Famílias (consulta via apps, quando habilitado)
+
+## Integrações
+
+- Núcleo i-Educar (aluno, escola, turma)
+- Exportação unificada (PDF/relatórios)
+- Apps API (cardápio para responsáveis)
 
 ## Compatibilidade
 
 | Produto | Versão |
 | --- | --- |
-| **i-Educar** | **2.12.x** (min. 2.12.0) |
-| **i-Diário** | Portabilis i-Diário (espelho Laguna) via API/SSO do core |
-| Pacote | `0.2.0` |
+| **i-Educar** | **2.12.x** |
+| **i-Diário** | Portabilis i-Diário (API / SSO do núcleo) |
+| Pacote | `0.2.1` |
 
-Declarado em `composer.json` → `extra.ieducar` e `extra.idiario`.
+Declarado em `composer.json` → `extra.ieducar` / `extra.idiario`.
 
-## Identidade
+## Documentação
 
-| Token | Valor |
+| Documento | Uso |
 | --- | --- |
-| Cor base | `#0f6b4c` (verde PNAE) |
-| Destaque | `#2d8a5e` |
-| Ícone | `fa-cutlery` |
-| Processos | `8811xx` |
-| Menu raiz `order` | `9` (após transporte `8`) |
+| [`EPIC.md`](./EPIC.md) | Escopo de produto, aceite e critérios |
+| [`ROADMAP.md`](./ROADMAP.md) | Fases e entregas |
+| [`TODO.md`](./TODO.md) | Backlog operacional |
+| [`REQUISITOS-TR.md`](./REQUISITOS-TR.md) | Rastreio de requisitos (planejamento) |
 
-UI espelha o transporte: lateral por grupos, botões `--cor-tela`, Font Awesome.
+---
 
-## Rotas SME
-
-| URL | Função |
-| --- | --- |
-| `/alimentacao-escolar` | Painel |
-| `/alimentacao-escolar/cardapio` | Cardápio do dia + conflitos |
-| `/alimentacao-escolar/restricoes` | Restrições (`ref_cod_aluno`) |
-| `/alimentacao-escolar/mapa` | Mapa de distribuição |
-| `/alimentacao-escolar/demo` | Seed PoC |
-
-## Schema
-
-- `alimentacao.cardapio_dia`
-- `alimentacao.restricao_aluno`
-
-Migrations só carregam se `PackageTenant::allows('buriti/i-educar-alimentacao-escolar-package')`.
-
-## Comandos
-
-```bash
-php artisan alimentacao:demo --data=2026-11-24 --escola=Rede
-php packages/buriti/i-educar-alimentacao-escolar-package/tests/run.php
-```
-
-## Docs
-
-- `EPIC.md` · `ROADMAP.md` · `TODO.md` · `REQUISITOS-TR.md`
-- Manual de integração (monorepo): `packages/buriti/docs/MANUAL-INTEGRACAO-LAGUNA.md`
-- UI módulos: `packages/buriti/docs/UI-MODULOS-LAGUNA.md`
-- Padrão: `packages/buriti/PADRAO-PACOTE-2.12.md`
+Licença: **GPL-2.0-or-later** · Organização [i-Educar](https://github.com/i-Educar)
