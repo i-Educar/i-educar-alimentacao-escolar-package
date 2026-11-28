@@ -1,0 +1,9 @@
+{
+  "package": "i-educar-alimentacao-escolar-package",
+  "composer": "buriti/i-educar-alimentacao-escolar-package",
+  "version": "0.2.2",
+  "sha": "pending",
+  "full_sha": "pending",
+  "deployed_at": "2026-11-28T17:31:33Z",
+  "source": "github-actions"
+}
