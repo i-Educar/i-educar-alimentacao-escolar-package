@@ -4,6 +4,7 @@ namespace iEducar\Packages\BuritiAlimentacaoEscolar\Providers;
 
 use App\Support\PublicModuleRegistry;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Console\AlimentacaoDemoCommand;
+use iEducar\Packages\BuritiAlimentacaoEscolar\Console\AlimentacaoSeedTacoCommand;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Support\Identidade;
 use iEducar\Packages\BuritiAlimentacaoEscolar\Support\MenuFluxo;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(dirname(__DIR__, 2).'/config/alimentacao.php', 'alimentacao');
         // Fora de runningInConsole(): o check do Ambiente Laguna (HTTP) usa Artisan::all().
-        $this->commands([AlimentacaoDemoCommand::class]);
+        $this->commands([AlimentacaoDemoCommand::class, AlimentacaoSeedTacoCommand::class]);
     }
 
     public function boot(): void
@@ -71,6 +72,9 @@ class AlimentacaoEscolarServiceProvider extends ServiceProvider
                 'restricoes' => true,
                 'mapa' => true,
                 'balanco' => true,
+                'sobras' => true,
+                'fichas_tecnicas' => true,
+                'cronograma' => true,
                 'historico' => true,
                 'config' => true,
                 'demo' => true,

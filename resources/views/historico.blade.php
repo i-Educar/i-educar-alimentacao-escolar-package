@@ -7,7 +7,7 @@
     Auditoria de cardápios, restrições e demais alterações do módulo
 @endsection
 @section('acoes-topo')
-    <a class="botao claro" href="{{ url('/alimentacao-escolar/cardapio') }}"><i class="fa fa-cutlery"></i> Cardápio</a>
+    <a class="botao claro icone" href="{{ url('/alimentacao-escolar/cardapio') }}" title="Cardápio" aria-label="Cardápio"><i aria-hidden="true" class="fa fa-cutlery"></i></a>
 @endsection
 
 @section('conteudo')

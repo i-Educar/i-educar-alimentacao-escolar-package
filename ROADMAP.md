@@ -1,7 +1,7 @@
 # ROADMAP — Alimentação Escolar (PNAE)
 
 > Pacote: `buriti/i-educar-alimentacao-escolar-package` · TR **5.2** · Prioridade **P0** · Nota **D**  
-> Alinhado a `tmp/DOC-EXECUTIVO-PE-77-2026-LAGUNA-IEDUCAR.md`
+> Alinhado a `packages/buriti/docs/laguna/DOC-EXECUTIVO-PE-77-2026-LAGUNA-IEDUCAR.md`
 
 ## Visão
 

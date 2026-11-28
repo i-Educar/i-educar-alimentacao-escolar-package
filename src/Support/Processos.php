@@ -21,6 +21,12 @@ final class Processos
 
     public const MAPA = 881112;
 
+    public const PERFIL = 881115;
+
+    public const BALANCO = 881116;
+
+    public const CONFIG = 881117;
+
     public const DEMO = 881190;
 
     /** @return array<int, string> */
@@ -34,6 +40,9 @@ final class Processos
             self::ITENS => 'Itens / catálogo PNAE',
             self::RESTRICOES => 'Restrições alimentares',
             self::MAPA => 'Mapa de distribuição',
+            self::PERFIL => 'Perfil escolar / porções',
+            self::BALANCO => 'Balanço e compras',
+            self::CONFIG => 'Configurações do módulo',
             self::DEMO => 'Demo PoC',
         ];
     }

@@ -7,8 +7,8 @@
 @section('lead', 'Monte o cardápio do dia, registre restrições alimentares e acompanhe a distribuição nas escolas.')
 
 @section('acoes-topo')
-    <a class="botao" href="{{ url('/alimentacao-escolar/cardapio') }}"><i class="fa fa-cutlery"></i> Montar cardápio</a>
-    <a class="botao claro" href="{{ url('/alimentacao-escolar/mapa') }}"><i class="fa fa-map-o"></i> Mapa</a>
+    <a class="botao icone" href="{{ url('/alimentacao-escolar/cardapio') }}" title="Montar cardápio" aria-label="Montar cardápio"><i aria-hidden="true" class="fa fa-cutlery"></i></a>
+    <a class="botao claro icone" href="{{ url('/alimentacao-escolar/mapa') }}" title="Mapa" aria-label="Mapa"><i aria-hidden="true" class="fa fa-map-o"></i></a>
 @endsection
 
 @section('conteudo')

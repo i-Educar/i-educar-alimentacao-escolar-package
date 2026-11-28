@@ -26,17 +26,16 @@ return new class extends Migration
 
         if (Schema::hasTable('alimentacao.item') && (int) DB::table('alimentacao.item')->count() === 0) {
             $agora = now();
+            // Sem aliases ASCII (feijao/pao) — evita duplicata; matching ignora acento no serviço.
             $seed = [
                 ['arroz', 'in_natura', 'cereal', true],
                 ['feijão', 'in_natura', 'leguminosa', true],
-                ['feijao', 'in_natura', 'leguminosa', true],
                 ['salada', 'in_natura', 'hortalica', true],
                 ['fruta', 'in_natura', 'fruta', true],
                 ['banana', 'in_natura', 'fruta', true],
                 ['maçã', 'in_natura', 'fruta', true],
                 ['leite', 'minimamente', 'laticinio', false],
                 ['pão', 'processado', 'cereal', false],
-                ['pao', 'processado', 'cereal', false],
                 ['ovos', 'in_natura', 'proteina', true],
                 ['carne', 'minimamente', 'proteina', false],
                 ['suco natural', 'minimamente', 'fruta', true],

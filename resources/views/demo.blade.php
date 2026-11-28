@@ -11,7 +11,7 @@
 @section('acoes-topo')
     <form method="post" action="{{ url('/alimentacao-escolar/demo') }}">
     @csrf
-    <button class="botao" type="submit"><i class="fa fa-play"></i> Rodar agora</button>
+    <button class="botao icone" type="submit" title="Rodar agora" aria-label="Rodar agora"><i aria-hidden="true" class="fa fa-play"></i></button>
     </form>
 @endsection
 

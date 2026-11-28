@@ -66,21 +66,6 @@ class AlimentacaoDemoCommand extends Command
         $this->line('Destino: '.$dir);
         $this->line(sprintf('  ✓ cardápio %s (%d itens)', $data, $cardapio->totalItens()));
 
-        try {
-            $rt = ConfigAlimentacao::responsavelTecnico();
-            if ($rt === null || trim((string) ($rt['nome'] ?? '')) === '') {
-                ConfigAlimentacao::salvarResponsavelTecnico([
-                    'nome' => (string) config('alimentacao.rt_nome', 'Nutricionista responsável (PoC Laguna)'),
-                    'registro' => (string) config('alimentacao.rt_registro', 'CRN-10 0000'),
-                    'cargo' => (string) config('alimentacao.rt_cargo', 'Nutricionista responsável técnico'),
-                    'email' => (string) config('alimentacao.rt_email', 'alimentacao@laguna.sc.gov.br'),
-                ]);
-                $this->line('  ✓ RT PoC gravado (ajuste em Configurações → Módulos)');
-            }
-        } catch (\Throwable $e) {
-            $this->warn('  ! RT não persistido: '.$e->getMessage());
-        }
-
         if (Schema::hasTable('alimentacao.cardapio_dia')) {
             foreach ($escolasMapa as $nomeEscola) {
                 DB::table('alimentacao.cardapio_dia')->updateOrInsert(

@@ -9,7 +9,7 @@
 @endsection
 
 @section('acoes-topo')
-    <a class="botao" href="{{ url('/alimentacao-escolar/cardapio') }}"><i class="fa fa-cutlery"></i> Cardápio</a>
+    <a class="botao icone" href="{{ url('/alimentacao-escolar/cardapio') }}" title="Cardápio" aria-label="Cardápio"><i aria-hidden="true" class="fa fa-cutlery"></i></a>
 @endsection
 
 @section('conteudo')

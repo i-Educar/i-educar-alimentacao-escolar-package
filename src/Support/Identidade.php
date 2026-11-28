@@ -7,9 +7,9 @@ namespace iEducar\Packages\BuritiAlimentacaoEscolar\Support;
  */
 final class Identidade
 {
-    public const COR = '#0f6b4c';
+    public const COR = '#146c42';
 
-    public const DESTAQUE = '#2d8a5e';
+    public const DESTAQUE = '#198754';
 
     public const COR_CLARA = '#e5f6ec';
 
